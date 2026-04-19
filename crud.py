@@ -1,5 +1,6 @@
 import sqlite3
 import csv
+import os
 
 from models.metadata import (
     TABLE_NAME as METADATA_TABLE,
@@ -33,7 +34,8 @@ from schemas.genotypes import (
     normalize_genotype_row
 )
 
-DB_PATH = 'bio_db_project/bio.db'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, 'bio.db')
 
 METADATA_ALLOWED_SORT_COLUMNS = ['iid', 'phenotype', 'sex', 'age']
 
