@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<h1>Таблицы</h1>
+
+<div class="actions" style="flex-direction: column; align-items: flex-start; gap: 18px;">
+    <div>
+        <h2>Метаданные</h2>
+        <a class="btn btn-primary" href="{{ url_for('metadata_list') }}">Открыть</a>
+    </div>
+
+    <div>
+        <h2>Аннотация вариантов</h2>
+        <a class="btn btn-primary" href="{{ url_for('variants_list') }}">Открыть</a>
+    </div>
+
+    <div>
+        <h2>Генотипы</h2>
+        <a class="btn btn-primary" href="{{ url_for('genotypes_list') }}">Открыть</a>
+    </div>
+</div>
+{% endblock %}

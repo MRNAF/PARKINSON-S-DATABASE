@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Аннотация вариантов{% endblock %}
+{% block content %}
+<div class="topbar">
+    <h2>Аннотация вариантов</h2>
+    <div class="actions">
+        <a class="btn" href="{{ url_for('index') }}">На главную</a>
+        <a class="btn btn-primary" href="{{ url_for('variants_upload') }}">Загрузить CSV</a>
+    </div>
+</div>
+
+<div class="table-wrap">
+    <table>
+        <thead>
+            <tr>
+                {% for col in columns %}
+                <th>
+                    {% if sort == col and order == 'asc' %}
+                        <a href="{{ url_for('variants_list', sort=col, order='desc', offset=0) }}">{{ col }} ▼</a>
+                    {% else %}
+                        <a href="{{ url_for('variants_list', sort=col, order='asc', offset=0) }}">{{ col }}</a>
+                    {% endif %}
+                </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="bottom-nav">
+    <div>
+        {% if offset > 0 %}
+            {% set prev_offset = offset - page_size %}
+            {% if prev_offset < 0 %}{% set prev_offset = 0 %}{% endif %}
+            <a class="btn" href="{{ url_for('variants_list', sort=sort, order=order, offset=prev_offset) }}">Назад</a>
+        {% endif %}
+    </div>
+    <div>
+        {% if has_more %}
+            <a class="btn btn-primary" href="{{ url_for('variants_list', sort=sort, order=order, offset=offset + page_size) }}">Показать ещё</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Загрузка variants{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card card-soft">
+            <div class="card-body">
+                <h2 class="mb-4">Загрузить CSV в variants</h2>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <input class="form-control" type="file" name="file" accept=".csv" required>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary">Загрузить</button>
+                        <a class="btn btn-outline-secondary" href="{{ url_for('variants_list') }}">Назад</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

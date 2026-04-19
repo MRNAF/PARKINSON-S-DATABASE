@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Метаданные{% endblock %}
+{% block content %}
+<div class="topbar">
+    <h2>Метаданные</h2>
+    <div class="actions">
+        <a class="btn" href="{{ url_for('index') }}">На главную</a>
+        <a class="btn" href="{{ url_for('metadata_upload') }}">Загрузить CSV</a>
+        <a class="btn btn-primary" href="{{ url_for('metadata_add') }}">Добавить запись</a>
+    </div>
+</div>
+
+<div class="table-wrap">
+    <table>
+        <thead>
+            <tr>
+                {% for col in columns %}
+                <th>
+                    {% if sort == col and order == 'asc' %}
+                        <a href="{{ url_for('metadata_list', sort=col, order='desc') }}">{{ col }} ▼</a>
+                    {% else %}
+                        <a href="{{ url_for('metadata_list', sort=col, order='asc') }}">{{ col }}</a>
+                    {% endif %}
+                </th>
+                {% endfor %}
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+                <td>
+                    <a class="btn" href="{{ url_for('metadata_edit', iid=row[0]) }}">Редактировать</a>
+                    <a class="btn btn-danger" href="{{ url_for('metadata_delete', iid=row[0]) }}">Удалить</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

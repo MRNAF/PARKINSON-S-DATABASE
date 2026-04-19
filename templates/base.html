@@ -1,0 +1,146 @@
+<<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}База данных{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        .page {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            padding: 32px;
+        }
+
+        h1, h2 {
+            margin-top: 0;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            border: 1px solid #d1d5db;
+            background: white;
+            color: #111827;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: #f9fafb;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-danger {
+            color: #b91c1c;
+            border-color: #fecaca;
+            background: #fff5f5;
+        }
+
+        .btn-danger:hover {
+            background: #fee2e2;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid #e5e7eb;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f9fafb;
+            white-space: nowrap;
+        }
+
+        tr:nth-child(even) {
+            background: #fcfcfd;
+        }
+
+        a {
+            color: #2563eb;
+        }
+
+        .bottom-nav {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .form-card {
+            max-width: 600px;
+        }
+
+        .form-row {
+            margin-bottom: 16px;
+        }
+
+        .form-row label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .form-row input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
