@@ -17,6 +17,6 @@
 ## Запуск
 
 ```bash
-pip install -r Flask
+pip install Flask
 python app.py
 ```
