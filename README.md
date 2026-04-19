@@ -17,6 +17,6 @@
 ## Запуск
 
 ```bash
-pip install -r requirements.txt
+pip install -r Flask
 python app.py
 ```
